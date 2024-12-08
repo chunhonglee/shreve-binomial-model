@@ -3,12 +3,13 @@
 #include "node.h"
 #include <string>
 #include "optionValue.h"
+#include "europeanOption.h"
 
 void printBT(const std::string& prefix, std::shared_ptr<Node> node, bool isLeft) {
     if (node != nullptr){
         std::cout << prefix;
 
-        std::cout << (isLeft ? "|--" : "\\--" );
+        std::cout << (isLeft ? "|-\\" : "\\-\\" );
 
         // print the value of the node
         std::cout << node->getValue() << std::endl;
@@ -19,18 +20,36 @@ void printBT(const std::string& prefix, std::shared_ptr<Node> node, bool isLeft)
     }
 }
 
+double europeanCallOption(double value){
+    double k = 4;
+    return std::max(value - k, 0.0);
+}
+
 int main() {
-    StockPriceMovement tree = StockPriceMovement(3, 1, 2, 0.5);
-    std::shared_ptr<Node> head = tree.getHead();
 
-    printBT("", head, false);
+    EuropeanOptionBuilder europeanOptionBuilder = EuropeanOptionBuilder();
+    EuropeanOption option = europeanOptionBuilder
+        .setN(3)
+        .setU(2)
+        .setD(0.5)
+        .setS_0(4)
+        .setR(0.25)
+        .setStrikeFunction(europeanCallOption)
+        .build();
 
-    std::cout << "-----------------" << "\n";
+    StockPriceMovement stockPriceMovement = option.getStockPriceMovement();
+    OptionValue optionValue = option.getOptionValue();
 
-    OptionValue option = OptionValue(3);
-    std::shared_ptr<Node> headOption = option.getHead();
-
-    printBT(", ", headOption, false);
+    printBT("", stockPriceMovement.getHead(), false);
+    std::cout << "--------------" << "\n";
+    printBT("", optionValue.getHead(), false);   
+    std::cout << "--------------" << "\n";
+    std::cout << option.getStrikeFunction()(8) << "\n";
+    std::cout << option.getP_Tilde() << "\n";
+    std::cout << option.getQ_Tilde() << "\n";
+    std::cout << "--------------" << "\n";
+    option.evaluateOption();
+    printBT("", optionValue.getHead(), false);   
 
     return 0;
 }

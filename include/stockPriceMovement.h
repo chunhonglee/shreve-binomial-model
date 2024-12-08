@@ -13,6 +13,8 @@ class StockPriceMovement : public BinaryTree {
         std::shared_ptr<Node> buildStockPriveMovement(int n, double value);
 
     public:
+        StockPriceMovement();
+
         StockPriceMovement(int n, double S_0, double u, double d);
 };
 

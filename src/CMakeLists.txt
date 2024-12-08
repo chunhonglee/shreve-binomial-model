@@ -4,6 +4,7 @@ set(SOURCES
     node.cpp
     stockPriceMovement.cpp
     optionValue.cpp
+    europeanOption.cpp
 )
 
 include_directories(${CMAKE_SOURCE_DIR}/include)

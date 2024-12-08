@@ -1,6 +1,8 @@
 #include "stockPriceMovement.h"
 #include <iostream>
 
+StockPriceMovement::StockPriceMovement() {}
+
 StockPriceMovement::StockPriceMovement(int n, double S_0, double u, double d)
     : S_0(S_0), u(u), d(d), BinaryTree() {
         this->setN(n);
