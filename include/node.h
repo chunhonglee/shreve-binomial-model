@@ -15,8 +15,6 @@ class Node {
 
         Node(double value);
 
-        Node(double value, std::shared_ptr<Node>& left, std::shared_ptr<Node>& right);
-
         double getValue();
 
         std::shared_ptr<Node> getLeft();
