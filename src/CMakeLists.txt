@@ -3,6 +3,7 @@ set(SOURCES
     binaryTree.cpp
     node.cpp
     stockPriceMovement.cpp
+    optionValue.cpp
 )
 
 include_directories(${CMAKE_SOURCE_DIR}/include)

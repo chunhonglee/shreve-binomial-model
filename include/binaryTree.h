@@ -1,7 +1,6 @@
 #ifndef BINARYTREE_H
 #define BINARYTREE_H
 
-#include <memory>
 #include "node.h"
 
 // A class to represent the BinaryTree
