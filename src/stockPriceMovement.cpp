@@ -11,7 +11,6 @@ StockPriceMovement::StockPriceMovement(int n, double S_0, double u, double d)
 std::shared_ptr<Node> StockPriceMovement::buildStockPriveMovement(int n, double value) {
     std::shared_ptr<Node> current = std::make_shared<Node>(value);
     if (n == 0){
-        std::cout << "Test" << "\n";
         return current;
     }
 
