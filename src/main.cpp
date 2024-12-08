@@ -1,10 +1,15 @@
 #include <iostream>
-#include "example.h"
+#include "binaryTree.h"
 
-int main(){
+int main() {
+    BinaryTree tree = BinaryTree(2);
+    std::shared_ptr<Node> head = tree.getHead();
 
-    std::cout << "Hello World!";
-    testing();
+    std::cout << head->getValue() << "\n";
+    std::cout << head->getLeft()->getValue() << "\n";
+    std::cout << head->getRight()->getValue() << "\n";
 
+    std::cout << head->getLeft()->getLeft()->getValue() << "\n";
+    std::cout << head->getLeft()->getRight()->getValue() << "\n";
     return 0;
 }

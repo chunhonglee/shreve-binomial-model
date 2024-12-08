@@ -1,6 +1,7 @@
 set(SOURCES
     main.cpp
-    example.cpp
+    binaryTree.cpp
+    node.cpp
 )
 
 include_directories(${CMAKE_SOURCE_DIR}/include)
