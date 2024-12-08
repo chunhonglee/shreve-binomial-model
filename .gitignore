@@ -34,3 +34,6 @@
 # CMake
 out/
 CMakePresets.json
+
+# VSCode
+.vscode/
