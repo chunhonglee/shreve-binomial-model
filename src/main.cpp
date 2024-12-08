@@ -1,8 +1,8 @@
 #include <iostream>
-#include "binaryTree.h"
+#include "StockPriceMovement.h"
 
 int main() {
-    BinaryTree tree = BinaryTree(2);
+    StockPriceMovement tree = StockPriceMovement(2, 1, 2, 0.5);
     std::shared_ptr<Node> head = tree.getHead();
 
     std::cout << head->getValue() << "\n";

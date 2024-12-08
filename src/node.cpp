@@ -4,9 +4,6 @@ Node::Node() {}
 
 Node::Node(double value): value(value) {}
 
-Node::Node(double value, std::shared_ptr<Node>& left, std::shared_ptr<Node>& right)
-    : value(value), left(left), right(right) {}
-
 double Node::getValue() {
     return this->value;
 }

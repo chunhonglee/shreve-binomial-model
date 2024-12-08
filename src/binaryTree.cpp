@@ -15,6 +15,8 @@ std::shared_ptr<Node> BinaryTree::buildTree(int n){
     return current;
 }
 
+BinaryTree::BinaryTree() {}
+
 BinaryTree::BinaryTree(int n) : n(n) {
     this->head = buildTree(n);
 }
@@ -25,4 +27,12 @@ int BinaryTree::getHeight() {
 
 std::shared_ptr<Node> BinaryTree::getHead() {
     return this->head;
+}
+
+void BinaryTree::setHead(std::shared_ptr<Node>& head){
+    this->head = head;
+}
+
+void BinaryTree::setN(int n){
+    this->n = n;
 }
