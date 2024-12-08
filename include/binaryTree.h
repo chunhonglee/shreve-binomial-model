@@ -4,6 +4,7 @@
 #include <memory>
 #include "node.h"
 
+// A class to represent the BinaryTree
 class BinaryTree {
     private:
         int n;

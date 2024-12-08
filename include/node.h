@@ -3,6 +3,7 @@
 
 #include <memory>
 
+// A class to represent a Node used for the BinaryTree
 class Node {
     private:
         double value = 0;
