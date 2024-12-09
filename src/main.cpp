@@ -4,6 +4,7 @@
 #include <string>
 #include "optionValue.h"
 #include "europeanOption.h"
+#include "americanOption.h"
 
 void printBT(const std::string& prefix, std::shared_ptr<Node> node, bool isLeft) {
     if (node != nullptr){
@@ -25,16 +26,21 @@ double europeanCallOption(double value){
     return std::max(value - k, 0.0);
 }
 
+double americanPutOption(double value){
+    double k = 4;
+    return std::max(k - value, 0.0);
+}
+
 int main() {
 
-    EuropeanOptionBuilder europeanOptionBuilder = EuropeanOptionBuilder();
-    EuropeanOption option = europeanOptionBuilder
+    AmericanOptionBuilder OptionBuilder = AmericanOptionBuilder();
+    AmericanOption option = OptionBuilder
         .setN(3)
         .setU(2)
         .setD(0.5)
         .setS_0(4)
         .setR(0.25)
-        .setStrikeFunction(europeanCallOption)
+        .setStrikeFunction(americanPutOption)
         .build();
 
     StockPriceMovement stockPriceMovement = option.getStockPriceMovement();
@@ -50,6 +56,7 @@ int main() {
     std::cout << "--------------" << "\n";
     option.evaluateOption();
     printBT("", optionValue.getHead(), false);   
+    std::cout << option.getTimeZeroOptionValue() << "\n";
 
     return 0;
 }
