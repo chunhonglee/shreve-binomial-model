@@ -1,12 +1,12 @@
-#ifndef EUROPEANOPTION_H
-#define EUROPEANOPTION_H
+#ifndef AMERICANOPTION_H
+#define AMERICANOPTION_H
 
 #include "stockPriceMovement.h"
 #include "optionValue.h"
 #include "option.h"
 
-// Class to represent a European Option
-class EuropeanOption : public IOption {
+// Class to represent a American Option
+class AmericanOption : public IOption {
     private:
         int n;
         double u;
@@ -22,7 +22,7 @@ class EuropeanOption : public IOption {
         double calculateOptionValues(std::shared_ptr<Node> currentOption, std::shared_ptr<Node> currentStock, double r, double p_tilde, double q_tilde, std::function<double(double)> strikeFunction);
 
     public:
-        EuropeanOption(int n, double u, double d, double S_0, double r, std::function<double(double)> strikeFunction);
+        AmericanOption(int n, double u, double d, double S_0, double r, std::function<double(double)> strikeFunction);
         int getN();
         double getU();
         double getS_0();
@@ -37,8 +37,8 @@ class EuropeanOption : public IOption {
         double getTimeZeroOptionValue() override;
 };
 
-// Builder used to create European Options
-class EuropeanOptionBuilder {
+// Builder used to create American Options
+class AmericanOptionBuilder {
     private:
         int n;
         double u;
@@ -48,14 +48,14 @@ class EuropeanOptionBuilder {
         std::function<double(double)> strikeFunction;
 
     public:
-        EuropeanOptionBuilder();
-        EuropeanOptionBuilder setN(int n);
-        EuropeanOptionBuilder setU(double u);
-        EuropeanOptionBuilder setD(double d);
-        EuropeanOptionBuilder setS_0(double S_0);
-        EuropeanOptionBuilder setR(double r);
-        EuropeanOptionBuilder setStrikeFunction(std::function<double(double)> strikeFunction);
-        EuropeanOption build();
+        AmericanOptionBuilder();
+        AmericanOptionBuilder setN(int n);
+        AmericanOptionBuilder setU(double u);
+        AmericanOptionBuilder setD(double d);
+        AmericanOptionBuilder setS_0(double S_0);
+        AmericanOptionBuilder setR(double r);
+        AmericanOptionBuilder setStrikeFunction(std::function<double(double)> strikeFunction);
+        AmericanOption build();
 };
 
 #endif
