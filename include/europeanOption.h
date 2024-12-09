@@ -17,6 +17,8 @@ class EuropeanOption {
         std::function<double(double)> strikeFunction;
         StockPriceMovement stockPriceMovement;
         OptionValue optionValue;
+        
+        double calculateOptionValues(std::shared_ptr<Node> currentOption, std::shared_ptr<Node> currentStock, double r, double p_tilde, double q_tilde, std::function<double(double)> strikeFunction);
 
     public:
         EuropeanOption(int n, double u, double d, double S_0, double r, std::function<double(double)> strikeFunction);

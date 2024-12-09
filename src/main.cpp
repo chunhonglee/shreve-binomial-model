@@ -50,6 +50,7 @@ int main() {
     std::cout << "--------------" << "\n";
     option.evaluateOption();
     printBT("", optionValue.getHead(), false);   
+    std::cout << option.getTimeZeroOptionValue() << "\n";
 
     return 0;
 }
